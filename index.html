@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced User Profile Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>User Profile Form</h2>
+    <form id="userProfileForm" onsubmit="return handleFormSubmission()">
+        <label for="fullName">Full Name: *</label>
+        <input type="text" id="fullName" name="fullName" required><br><br>
+
+        <label for="address">Address: *</label>
+        <input type="text" id="address" name="address" required><br><br>
+
+        <label for="phoneNumber">Phone Number: *</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>
+
+        <label for="profilePicture">Profile Picture: *</label>
+        <input type="file" id="profilePicture" name="profilePicture" accept="image/*" required><br><br>
+
+        <label for="password">Password: *</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script src="profileForm.js"></script>
+</body>
+</html>
