@@ -1,6 +1,6 @@
 // Validate phone number format
 function validatePhoneNumber(phone) {
-    const phonePattern = /^\d{10}$/; 
+    const phonePattern = /^\d{10}$/;
     return phonePattern.test(phone);
 }
 
@@ -22,11 +22,16 @@ async function hashPassword(password) {
 
 // Handle form submission
 async function handleFormSubmission() {
-    const fullName = sanitizeInput(document.getElementById('fullName').value);
-    const address = sanitizeInput(document.getElementById('address').value);
+    const firstName = sanitizeInput(document.getElementById('firstName').value);
+    const lastName = sanitizeInput(document.getElementById('lastName').value);
+    const email = sanitizeInput(document.getElementById('email').value);
+    const street = sanitizeInput(document.getElementById('street').value);
+    const city = sanitizeInput(document.getElementById('city').value);
+    const state = sanitizeInput(document.getElementById('state').value);
+    const zip = sanitizeInput(document.getElementById('zip').value);
     const phoneNumber = document.getElementById('phoneNumber').value;
     const password = document.getElementById('password').value;
-    
+
     // Validate phone number
     if (!validatePhoneNumber(phoneNumber)) {
         alert("Please enter a valid 10-digit phone number.");
@@ -36,17 +41,56 @@ async function handleFormSubmission() {
     // Hash the password
     const hashedPassword = await hashPassword(password);
 
-    // Sending the sanitized and validated data securely
     console.log({
-        fullName,
-        address,
+        firstName,
+        lastName,
+        email,
+        street,
+        city,
+        state,
+        zip,
         phoneNumber,
         hashedPassword,
         profilePicture: document.getElementById('profilePicture').files[0] // Profile picture file
     });
 
     alert("Form submitted successfully!");
-
-    // Prevent the default form submission to allow for custom handling
     return false;
 }
+
+// Save data to session storage
+function saveDataToSession() {
+    const fields = ['firstName', 'lastName', 'email', 'street', 'city', 'state', 'zip', 'phoneNumber'];
+    fields.forEach(field => {
+        const value = document.getElementById(field).value;
+        sessionStorage.setItem(field, value);
+    });
+    alert('Data saved to session storage!');
+}
+
+// Load data from session storage
+function loadDataFromSession() {
+    const fields = ['firstName', 'lastName', 'email', 'street', 'city', 'state', 'zip', 'phoneNumber'];
+    fields.forEach(field => {
+        const storedValue = sessionStorage.getItem(field);
+        document.getElementById(field).value = storedValue || '';
+    });
+    alert('Data loaded from session storage!');
+}
+
+// Clear data from session storage and clear form fields
+function clearSessionData() {
+    sessionStorage.clear();
+    const fields = ['firstName', 'lastName', 'email', 'street', 'city', 'state', 'zip', 'phoneNumber'];
+    fields.forEach(field => {
+        document.getElementById(field).value = ''; // Clear each form field
+    });
+    alert('Session storage and form fields cleared!');
+}
+
+// // Load data on page load if there is data in session storage
+// window.onload = function() {
+//     if (sessionStorage.length > 0) {
+//         loadDataFromSession();
+//     }
+// };

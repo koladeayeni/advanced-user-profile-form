@@ -9,11 +9,26 @@
 <body>
     <h2>User Profile Form</h2>
     <form id="userProfileForm" onsubmit="return handleFormSubmission()">
-        <label for="fullName">Full Name: *</label>
-        <input type="text" id="fullName" name="fullName" required><br><br>
+        <label for="firstName">First Name: *</label>
+        <input type="text" id="firstName" name="firstName" required><br><br>
 
-        <label for="address">Address: *</label>
-        <input type="text" id="address" name="address" required><br><br>
+        <label for="lastName">Last Name: *</label>
+        <input type="text" id="lastName" name="lastName" required><br><br>
+
+        <label for="email">Email Address: *</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="street">Street Address: *</label>
+        <input type="text" id="street" name="street" required><br><br>
+
+        <label for="city">City: *</label>
+        <input type="text" id="city" name="city" required><br><br>
+
+        <label for="state">State: *</label>
+        <input type="text" id="state" name="state" required><br><br>
+
+        <label for="zip">Zip Code: *</label>
+        <input type="text" id="zip" name="zip" required><br><br>
 
         <label for="phoneNumber">Phone Number: *</label>
         <input type="text" id="phoneNumber" name="phoneNumber" required><br><br>
@@ -24,6 +39,9 @@
         <label for="password">Password: *</label>
         <input type="password" id="password" name="password" required><br><br>
 
+        <button type="button" onclick="saveDataToSession()">Save Data</button>
+        <button type="button" onclick="loadDataFromSession()">Load Data</button>
+        <button type="button" onclick="clearSessionData()">Clear Data</button>
         <button type="submit">Submit</button>
     </form>
 

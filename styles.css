@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #121212; /* Dark background */
     color: #f5f5f5; /* Light text color */
     flex-direction: column;
@@ -32,20 +32,23 @@ form {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     animation: fadeIn 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     color: #bbbbbb;
 }
 
 input[type="text"],
 input[type="password"],
+input[type="email"],
 input[type="file"] {
     width: 100%;
     padding: 0.75rem;
-    margin-bottom: 1rem;
     border: 1px solid #333;
     border-radius: 4px;
     background-color: #333;
@@ -55,15 +58,15 @@ input[type="file"] {
 
 input[type="text"]:focus,
 input[type="password"]:focus,
+input[type="email"]:focus,
 input[type="file"]:focus {
     border-color: #1db954; /* Bright green for focus */
     outline: none;
 }
 
-button[type="submit"] {
+button {
     width: 100%;
     padding: 0.75rem;
-    background-color: #1db954; /* Bright green button */
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -72,12 +75,30 @@ button[type="submit"] {
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
+button[type="button"] {
+    background-color: #333;
+    margin-top: 0.5rem;
+}
+
+button[type="button"]:hover {
+    background-color: #555;
+}
+
+button[type="submit"] {
+    background-color: #1db954; /* Bright green button */
+}
+
 button[type="submit"]:hover {
     background-color: #17a349;
 }
 
 button[type="submit"]:active {
     transform: scale(0.98);
+}
+
+button-container {
+    display: flex;
+    gap: 0.5rem;
 }
 
 /* Fade-in animation */
